@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-image: url('bg2.png');
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-img {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://via.placeholder.com/1200x400') center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            color: black;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 0.8rem;
+            color: var(--secondary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--primary);
+            background-color: var(--light);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .map-container {
+            height: 400px;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .logo-img {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="NEWTONEXUS Logo" class="logo-img">
+        </div>
+        <h1>NEWTONEXUS</h1>
+        <p>Contact Information & Support</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#locations">Locations</a></li>
+            <li><a href="team.html">Our Team</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="hero">
+            <h2>We're Here to Help</h2>
+            <p>Reach out to our team for any questions or support needs</p>
+        </section>
+        
+        <section id="contact">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h3>Technical Support </h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-person"></i>Jenghis Alcantara  </p>
+                        <p><i class="fas fa-phone"></i>09853633268 </p>
+                        <p><i class="fas fa-envelope"></i> alcantarajenghis12@gmail.com </p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-5PM</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/jenghislcntr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://github.com/saparochaaa"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jenghis-alcantara-997ba1333/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/bfjsdhbjfsbdbfjbdjs/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="locations">
+            <h2 class="section-title">Our Locations</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7892.923395821246!2d120.99410978931698!3d14.599251097341956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9e507cfffff%3A0x9908bb0c4aded4d1!2sEARIST%20-%20CEAFA%20Building!5e1!3m2!1sen!2sph!4v1751122132266!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="contact-card">
+                <h3>EARIST Engineering Building</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Nagtahan, Sampaloc, Manila, 1008 Metro Manila</p>
+                    <p><i class="fas fa-phone"></i> 09853633268</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-5PM</p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <h3>EARIST Engineering Department</h3>
+                <p>Contact Information & Support</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#locations">Locations</a>
+            <a href="team.html">Our Team</a>
+        </div>
+        <p class="copyright">© 2023 EARIST Engineering Department. All rights reserved.</p>
+    </footer>
+</body>
+</html>
